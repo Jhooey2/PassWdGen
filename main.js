@@ -2,10 +2,14 @@
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
-var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-var lowercase = "abcdefghijklmnopqrstuvwxyz"
-var numbers = "0123456789"
-var symbols = "!@#$%^&*()_+"
+var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var lowercase = "abcdefghijklmnopqrstuvwxyz";
+var numbers = "0123456789";
+var symbols = "!@#$%^&*()_+";
+var selected = [];
+var merged = [];
+var passLegnth = 0;
+var userPassword = '';
 
 var genPasswordButton = document.querySelector('#generateButton');
 var copyPasswordButton = document.querySelector('#copyButton');
@@ -24,6 +28,34 @@ genPasswordButton.addEventListener('click', function() {
     }
     document.getElementById('password-form').textContent = userPassword;
 });
+
+function selectedCharacters() {
+    var symbolsYes = confirm('Click OK to include special characters in your password.');
+    if (symbolsYes === true) {
+        selectedOption(symbols);
+    }
+    var numbersYes = confirm('Click OK to include numerical characters in your password.');
+    if (numbersYes === true) {
+        selectedOption(numbers);
+    }
+    var lowercaseYes = confirm('Click OK to include lowercase characters in your password.');
+    if (lowercaseYes === true) {
+        selectedOption(lowercase);
+    }
+    var uppercaseYes = confirm('Click OK to include uppercase characters in your password.');
+    if (uppercaseYes === true) {
+        selectedOption(uppercase);
+    }
+    if (uppercaseYes === false && lowercaseYes === false && numbersYes === false && symbolsYes === false) {
+        alert('You must select at least one character type.');
+    }
+    var password = '';
+    var legnth = parseInt(document.generator.legnth.value);
+    for(var i = 0; i < legnth; i++) {
+        
+    }
+}
+
 
 function writePassword() {
  
