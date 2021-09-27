@@ -4,6 +4,13 @@ var generateBtn = document.querySelector("#generate");
 function generatePassword(){
     console.log("checked button")
 
+//1. Prompt the user with the criteria
+//  a. Psswd length between 8-128 Chars
+//  b. Lowercase, Uppercase, Numbers, Special Chars
+//2. Validate the input.
+//3. Generate Psswd based on criteria
+//4. Display Psswd to the page.    
+
     return "Generated Password";
 }
 
