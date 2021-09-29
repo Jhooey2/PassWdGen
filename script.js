@@ -21,7 +21,7 @@ var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var lowercase = "abcdefghijklmnopqrstuvwxyz";
 var numbers = "0123456789";
 var symbols = "!@#$%^&*()_+";
-var possibleCharacterList = ''
+var possibleCharacters = ''
 
 //Function to write password
 function writePassword() {
@@ -45,6 +45,33 @@ function writePassword() {
     var lowercase = confirm('Would you like lowercase letters?')
     var uppercase = confirm('Would you like uppercase Characters?')
 
+        // Based on confirmations, type of characters are added to "possibleCharacters" string
+        if (symbols === true) {
+            possibleCharacters += symbols
+        }
+    
+        if (numbers === true) {
+            possibleCharacters += numbers
+        }
+    
+        if (lowercase === true) {
+            possibleCharacters += lowercase
+        }
+    
+        if (uppercase === true) {
+            possibleCharacters += uppercase
+        }
+    
+        // Function stops if no character type is selected
+        if (symbolss === false && numbers === false && lowercase === false && uppercase === false) {
+            alert('At least one character type must be selected. Try again.')
+            return;
+        }
+    
+        //Randomized password based on characters now in "possibleCharacters" string * password
+        for (var i = 0; i < password; i++) {
+            password += possibleCharacters.charAt(Math.floor(Math.random() * possibleCharacters.length));
+        }
    
     //Push password to HTML textbox
     passwordText.value = password
