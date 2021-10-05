@@ -40,41 +40,42 @@ function writePassword() {
         return;
     }
 
-    var symbols = confirm('Would you like special characters?')
-    var numbers = confirm('Would you like numbers?')
-    var lowercase = confirm('Would you like lowercase letters?')
-    var uppercase = confirm('Would you like uppercase Characters?')
+    var symbolsConfirm = confirm('Would you like special characters?')
+    var numbersConfirm = confirm('Would you like numbers?')
+    var lowercaseConfirm = confirm('Would you like lowercase letters?')
+    var uppercaseConfirm = confirm('Would you like uppercase Characters?')
 
         // Based on confirmations, type of characters are added to "possibleCharacters" string
-        if (symbols === true) {
+        if (symbolsConfirm === true) {
             possibleCharacters += symbols
         }
     
-        if (numbers === true) {
+        if (numbersConfirm === true) {
             possibleCharacters += numbers
         }
     
-        if (lowercase === true) {
+        if (lowercaseConfirm === true) {
             possibleCharacters += lowercase
         }
     
-        if (uppercase === true) {
+        if (uppercaseConfirm === true) {
             possibleCharacters += uppercase
         }
     
         // Function stops if no character type is selected
-        if (symbolss === false && numbers === false && lowercase === false && uppercase === false) {
+        if (symbolsConfirm === false && numbersConfirm === false && lowercaseConfirm === false && uppercaseConfirm === false) {
             alert('At least one character type must be selected. Try again.')
             return;
         }
-    
+        var generatedPassword = '';
         //Randomized password based on characters now in "possibleCharacters" string * password
         for (var i = 0; i < password; i++) {
-            password += possibleCharacters.charAt(Math.floor(Math.random() * possibleCharacters.length));
+            generatedPassword += possibleCharacters.charAt(Math.floor(Math.random() * possibleCharacters.length));
         }
    
     //Push password to HTML textbox
-    passwordText.value = password
+   // password.value = password
+    document.getElementById("password").textContent = generatedPassword;
 }
 
  // Add event listener to generate button
